@@ -1,0 +1,36 @@
+<ul class="upload-yes">
+    <li ng-repeat="list in affirmFile">
+        <div class="up-al">
+            <p>{{::list.name}}</p>
+            <i href="javascript:void(0)" class="input-yes"><img src="/images/gou.png"></i>
+        </div>
+    </li>
+</ul>
+<ul class="upload-input">
+    <li ng-repeat="list in files">
+        <div class="up-al">
+            <p>{{::list.name}}</p>
+            <a href="javascript:void(0)" class="upload-close" ng-click="del($index)"><img src="/images/close2.png"></a>
+        </div>
+    </li>
+</ul>
+<div class="upload-all">
+    <div class="upload-btn">
+        <label class="upload-pic" for="uploadFile">
+            <i class="upload-pic"></i>
+             选择文件
+        </label>
+        <input type="file" id='uploadFile' style="display: none" onchange='angular.element(this).scope().fileNameChanged()' accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel">
+    </div>
+</div>
+<div class="module-btn">
+    <!-- <a href="javascript:void(0)" class="module-upload" ng-click="moduleUp()">模板下载</a> -->
+    <div class="{{isUp?'import-no':'import-yes'}}" ng-click="updataSel()">
+        <label class="sure-btn">
+            <i class="sure-pic"></i>
+            导入
+        </label>
+    </div>
+</div>
+
+<footer class="footer"></footer>

@@ -1,0 +1,268 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>功能模块</em></label>
+                    <input type="text" ng-model="dist.moudle" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>功能级别</em></label>
+                    <input type="number" ng-model="dist.gpriority" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务类型</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="dist.taskType" class="sele" ng-change="times()">
+                            <option value="ADMININSTRATION">行政任务</option>
+                            <option value="ENGINEERING">工程任务</option>
+                            <option value="TRAINING">培训任务</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>时长类型</em></label>
+                    <select ng-model="dist.timesType" class="sele" disabled>
+                        <option value="ADMININSTRATIONS">行政时长</option>
+                        <option value="ENGINEERINGS">工程时长</option>
+                        <option value="TRAININGS">培训时长</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务名</em></label>
+                    <input type="text" ng-model="dist.taskName" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务内容</em></label>
+                    <input type="text" ng-model="dist.content" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>执行人员</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="dist.execute" class="sele">
+                            <option ng-repeat="name in names" value="{{name.username}}">{{name.username}}</option>
+                        </select> 
+                        <input type="text" ng-model="dist.execute" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计划任务量</em></label>
+                    <input type="number" ng-model="dist.planNum" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>完成任务量</em></label>
+                    <input type="number" ng-model="dist.actualNum" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><em>完成状态</em></label>
+                    <input type="text" ng-model="dist.finishStatus" disabled>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总需时长</em></label>
+                    <input type="text" ng-model="dist.needTime1" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>总需时长时间类型</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="dist.needType" class="sele">
+                            <option value="MINUTE">分钟</option>
+                            <option value="HOUR">小时</option>
+                            <option value="DAY">天</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>执行时长</em></label>
+                    <input type="text" ng-model="dist.executeTime1" disabled>
+                </li>
+                <li class="required">
+                    <label><em>执行时长时间类型</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="dist.executeType" class="sele" disabled>
+                            <option value="MINUTE">分钟</option>
+                            <option value="HOUR">小时</option>
+                            <option value="DAY">天</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>实际时长</em></label>
+                    <input type="text" ng-model="dist.actualTime1" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>实际时长时间类型</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="dist.actualType" class="sele">
+                            <option value="MINUTE">分钟</option>
+                            <option value="HOUR">小时</option>
+                            <option value="DAY">天</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>未完成时长</em></label>
+                    <input type="number" ng-model="dist.undoneTime1">
+                </li>
+                <li class="required">
+                    <label><em>未完成时长时间类型</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="dist.undoneType" class="sele">
+                            <option value="MINUTE">分钟</option>
+                            <option value="HOUR">小时</option>
+                            <option value="DAY">天</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>完成时间</em></label>
+                    <input type="text" ng-model="dist.finishTime" disabled>
+                </li>
+                <li class="required">
+                    <label><em>执行开始时间</em></label>
+                    <input type="text" ng-model="dist.startExecute" disabled>
+                </li>
+                <li class="required">
+                    <label><em>执行结束时间</em></label>
+                    <input type="text" ng-model="dist.endExecute" disabled>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务开始时间</em></label>
+                    <input type="text" class="startTime" ng-model="dist.startTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务结束时间</em></label>
+                    <input type="text" class="endTime" ng-model="dist.endTime" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                </li>
+                <li class="required">
+                    <label><em>注意事项</em></label>
+                    <input type="text" ng-model="dist.notice">
+                </li>
+                <li class="required">
+                    <label><em>附件列表</em></label>
+                    <ul style="width: 60%;">
+                        <li ng-repeat="lists in distFiles" class="list-text {{lists.checked?'checked':''}}" ng-click="fn(lists)" ng-hide="lists.delel">
+                            <a href="javascript:void(0)">
+                                <img ng-src="{{ lists.fileType | cov }}">
+                                <i>{{lists.name}}</i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>是否发生费用报销</em></label>
+                    <select ng-model="dist.reimbursement" class="sele">
+                        <option ng-value="true">是</option>
+                        <option ng-value="false">否</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>任务工作总结</em></label>
+                    <input type="text" ng-model="dist.summary" disabled>
+                </li>
+                <li class="required">
+                    <label><em>是否出现问题</em></label>
+                    <select ng-model="dist.question" class="sele" disabled>
+                        <option ng-value="true">是</option>
+                        <option ng-value="false">否</option>
+                    </select>
+                </li>
+                <!-- --------------------------------------------------------------------- -->
+
+                <li class="required">
+                    <p class="dataBottom">
+                        <button ng-click="add()" style="font-size:14px;">添加表</button>
+                    </p>
+                </li>
+
+
+
+
+
+
+
+
+
+                <div class="question" ng-show="yes">
+                    <div class="questionlist" ng-repeat="list in btos">
+                        <div class="collect">
+                            <div class="collect-select seconds">
+                                <li class="required">
+                                    <label><em>问题审核人</em></label>
+                                    <input type="text" class="audit" ng-model="dist.questions[0].audit" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>受理人</em></label>
+                                    <input type="text" class="receiver" ng-model="dist.questions[0].receiver" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>事件</em></label>
+                                    <input type="text" class="event" ng-model="dist.questions[0].event" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>问题描述</em></label>
+                                    <input type="text" class="description" ng-model="dist.questions[0].description" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>问题类型</em></label>
+                                    <input type="text" class="type" ng-model="dist.questions[0].type" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>期望处理时间</em></label>
+                                    <input type="text" class="expectTime" ng-model="dist.questions[0].expectTime" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>协助部门</em></label>
+                                    <input type="text" class="assistDepart" ng-model="dist.questions[0].assistDepart" disabled>
+                                </li>
+                                <li class="required">
+                                    <label><em>协助模块</em></label>
+                                    <input type="text" class="assistModule" ng-model="dist.questions[0].assistModule" disabled>
+                                </li>
+                            </div>
+                        </div>
+                        <button class="btn" ng-click="del($index)">×</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="openEditFun()">提交</button>
+    </p>
+</div>
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>确定要下载或删除这条数据？</p>
+        <div class="btn">
+            <button ng-click="delFn()">下载</button>
+            <button ng-click="delete()">删除</button>
+            <button ng-click="cancel()">取消</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

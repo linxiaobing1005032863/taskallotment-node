@@ -1,0 +1,30 @@
+<div class="content-input add" verify-scope="tipStyle: 1"klkl>
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>添加天数</em></label>
+                    <input type="mumber" ng-model="edit.increase" ng-verify="{}">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务是否拆分</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="edit.split" class="sele">
+                            <option ng-value=true>是</option>
+                            <option ng-value=false>否</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>拆分为(天)</em></label>
+                    <input type="mumber" ng-model="edit.day" ng-verify="{}">
+                </li>
+               
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="openEditFun()">提交</button>
+    </p>
+</div>

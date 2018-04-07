@@ -1,0 +1,20 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required import-input">
+                    <label><em>项目表</em></label>
+                    <div class="select">
+                        <p class="select-text">
+                            <span ng-repeat="tableName in tableNames">{{tableName.name}}, </span>
+                        </p>
+                        <div class="mymultiselect" ng-dropdown-multiselect="" options="getTableNames" selected-model="tableNames" extra-settings="stringSettings"></div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

@@ -1,0 +1,84 @@
+<div class="content-tab list" style="overflow: auto;margin-left: 15px;">
+    <div class="search-select" style="position: fixed;z-index: 10;background: #fff;">
+        <i>地区：</i><select ng-change="changSelect()" ng-model="area">
+            <option value="" disabled>请选择</option>
+            <option ng-repeat="area in areas">{{area}}</option>
+        </select>
+        <i>部门：</i><select ng-change="changSelect2()" ng-model="depart">
+            <option value="" disabled>请选择</option>
+            <option ng-repeat="depart in departs">{{depart}}</option>
+        </select>
+        <i>立项情况：</i><select ng-change="changSelect3()" ng-model="makeProject">
+            <!-- <option ng-repeat="makeProject in makeProjects">{{makeProject}}</option> -->
+            <option value="" disabled>请选择</option>
+            <option value="NOMAKE">预立项</option>
+            <option value="HADMAKE">立项</option>
+            <option value="NOTMAKE">不立项</option>
+        </select>
+        <i>项目名称：</i><select ng-change="changList()" ng-model="projectId">
+            <option value="" disabled>请选择</option>
+            <option ng-repeat="project in projects" value="{{project.id}}">{{project.project}}</option>
+        </select>
+    </div>
+    <ul class="table" style="width:{{(maxInNumbers*933.75)+306.24 + 'px'}};margin-top:75px;">
+        <li>
+            <ul>
+                <li class="list-head">
+                <!-- <li class="list-head" style="width:{{(maxInNumbers*829.09)+204.16 + 'px'}};}}"> -->
+                    <i>
+                        <span class="newSpan">任务</span>
+                        <span class="newSpan">创建人</span>
+                        <span class="newSpan">任务状态</span>
+                    </i>
+                    <i ng-repeat="title in titles track by $index">
+                        <span class="newSpan">{{title.area1}}</span>
+                        <span class="newSpan">{{title.area2}}</span>
+                        <span class="newSpan">{{title.area3}}</span>
+                        <span class="newSpan">{{title.area4}}</span>
+                        <span class="newSpan">{{title.area5}}</span>
+                        <span class="newSpan">{{title.area6}}</span>
+                        <span class="newSpan">{{title.area7}}</span>
+                        <span class="newSpan">{{title.area9}}</span>
+                        <span class="newSpan">{{title.area8}}</span>
+                    </i>
+                </li>
+            </ul>
+        </li>
+        
+        <li class="list-all" ng-repeat="lists in openLists" style="overflow:hidden">
+        <!-- <li class="list-all" ng-repeat="lists in openLists" style="display: {{lists._delete?'none':'block'}};"> -->
+            <section>
+                <div class="list-text">
+                <!-- <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)"> -->
+                    <i ng-click="inClick(lists)" class="list-text keng1 {{lists._selectList?'selectList':''}}">
+                        <span class="newSpan" mod>{{lists.name}}</span>
+                        <span class="newSpan" mod>{{lists.creater}}</span>
+                        <span class="newSpan" mod>{{lists.taskStatus | addit}}</span>
+                    </i>
+                    
+                    <i ng-repeat="list in lists.nodeS" class="list-text keng1 {{list._selectList?'selectList':''}}" ng-click="inClick2(list)">
+                        <span class="newSpan" mod>{{list.taskName}}</span>
+                        <span class="newSpan" mod>{{list.execute}}</span>
+                        <span class="newSpan" mod>{{list.planTime}}</span>
+                        <span class="newSpan" mod>{{list.taskType | addit}}</span>
+                        <span class="newSpan" mod>{{list.planNum}}</span>
+                        <span class="newSpan" mod>{{list.needTime}}</span>
+                        <span class="newSpan" mod>{{list.needType | addit}}</span>
+                        <span class="newSpan" mod>{{list.taskStatus | addit}}</span>
+                        <span class="newSpan" mod>{{list.remark}}</span>
+                    </i>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>

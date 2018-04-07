@@ -1,0 +1,29 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>描述</span>
+            <span>类型</span>
+            <span>操作对象范围</span>
+        </li>
+        <li class="list-all" ng-repeat="list in settingLists" >
+            <section >
+                <div class="list-text {{list._selectList?'selectList':''}}" ng-click="selectList(list)">
+                    <p>{{$index+1+num}}</p>
+                    <p>{{list.description}}</p>
+                    <p>{{list.type|cover}}</p>
+                    <p><span ng-repeat="operators in list.cusOperateVO">{{operators.operator}},</span></p>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <footer class="footer">
+        <pagination count="pagination.itemsCount" take="pagination.take" activate="pagination.activatePage"></pagination>
+    </footer>
+</div>
+<div ui-view="modal"></div>
+
+
+
+
+

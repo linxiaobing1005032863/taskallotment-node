@@ -1,0 +1,20 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="achieve()" ng-class="{'current':menuClass=='achieveMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="确认完成" class="same-two see" >确认完成<span></span></a>
+    </li>
+    <li ng-click="undone()" ng-class="{'current':menuClass=='undoneMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="确认未完成" class="same-two see" >确认未完成<span></span></a>
+    </li>
+    <li ng-click="reback()" ng-class="{'current':menuClass=='rebackMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="撤回任务" class="same-two see" >撤回任务<span></span></a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" title="编辑"  class="same-one see">编辑<span></span></a>
+    </li>
+    <li ng-click="listDetails()" ng-class="{'current':menuClass=='listDetailsMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" title="编辑"  class="same-one see">查看详情内容<span></span></a>
+    </li>
+</ul>

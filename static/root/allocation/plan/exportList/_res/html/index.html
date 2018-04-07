@@ -1,0 +1,34 @@
+<div class="content-input add" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>项目表</em></label>
+                    <!-- <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side"> -->
+                        <select ng-model="tables" class="sele" ng-change="aa($event)">
+                            <option value="请选择" disabled>请选择</option>
+                            <option ng-repeat="getTableName in getTableNames">{{getTableName.name}}</option>
+                        </select> 
+                         <!-- <input type="text" ng-model="item.getTableName" ng-verify="{}"> -->
+                    <!-- </div> -->
+                </li>
+                <li class="required import-input">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务名称</em></label>
+                    <div class="select">
+                        <p class="select-text">
+                            <span ng-repeat="mission in missions">{{mission}}, </span>
+                        </p>
+                        <div class="mymultiselect" ng-dropdown-multiselect="" options="getMissions" selected-model="missions" extra-settings="stringSettings"></div>
+                    </div>
+                </li>
+                <li class="required" style="display: none">
+                    <label><i><img src="/images/mandatory.png"></i><em>tableId</em></label>
+                    <input type="text" ng-model="id">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <button ng-verify="{control:'myform'}" ng-click="workersAddFun()">导出</button>
+    </p>
+</div>

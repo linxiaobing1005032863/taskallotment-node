@@ -1,0 +1,57 @@
+<script src="/root/_res/js/echarts.common.min.js"></script>
+<div class="collect">
+    <div class="collect-select" style="margin:20px 20px 20px 15px">
+        <span class="sum">汇总类型：
+            <select ng-model="vm.countType" ng-change="changSelect()" ng-init="vm.countType='WHOLE'">
+                <option value="WHOLE">整体汇总</option>
+                <option value="DEPART">项目组/部门汇总</option>
+            </select>
+        </span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>开始时间：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter startTime" ng-model="vm.startTime"></span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>结束时间：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter endTime" ng-model="vm.endTime"></span><br>
+        <span class="sum"><i ng-show="none"><img src="/images/mandatory.png"></i>地区：
+            <div class="select inli" style="position: relative;z-index: 14;">
+                <p class="select-text" >
+                    <span ng-repeat="str1 in positions1">{{str1.area}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="areas" selected-model="positions1" extra-settings="stringSettings1"></div>
+            </div>
+        </span>
+        <span class="sum"><i ng-show="none"><img src="/images/mandatory.png"></i>项目组/部门：
+            <div class="select inli">
+                <p class="select-text" >
+                    <span ng-repeat="str2 in positions2">{{str2.department}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="departs" selected-model="positions2" extra-settings="stringSettings2" ng-click="aaa()"></div>
+            </div>
+        </span>
+        <button ng-click="summary()" style="margin-left:10px;" class="colbutton">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead Tspan">
+            <span>地区</span>
+            <span>项目组/部门</span>
+            <span>无差异人数</span>
+            <span>有差异人数</span>
+        </li>
+        <li class="sum-tbody list-keng" ng-repeat="Lists1 in personnelSummary">
+            <span class="list-keng-span" style="height:{{(Lists1.length*46) + 'px'}};line-height:{{(Lists1.length*46) + 'px'}}">{{Lists1.area}}</span>
+            <ul>
+                <li ng-repeat="Lists2 in Lists1.timeSonS">
+                    <span>{{Lists2.depart}}</span>
+                    <span>{{Lists2.noDiffer}}</span>
+                    <span>{{Lists2.haveDiffer}}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div id="main3"></div>
+</div>
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

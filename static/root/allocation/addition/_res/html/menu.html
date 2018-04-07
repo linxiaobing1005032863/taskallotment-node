@@ -1,0 +1,11 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="添加小任务" class="add">添加小任务<span></span></a>
+    </li>
+    <li ng-click="listDetails()" ng-class="{'current':menuClass=='listDetailsMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" title="查看详情内容"  class="same-one see">查看详情内容<span></span></a>
+    </li>
+</ul>

@@ -1,0 +1,69 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>执行人</em></label>
+                    <div class="sele ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched projectName side">
+                        <select ng-model="edit.execute" class="sele">
+                            <option ng-repeat="name in names" value="{{name.username}}">{{name.username}}</option>
+                        </select> 
+                        <input type="text" ng-model="edit.execute" ng-verify="{}">
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>计划任务量</em></label>
+                    <input type="number" ng-verify="{}" ng-model="edit.planNum">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>所需时长</em></label>
+                    <input type="number" ng-verify="{}" ng-model="edit.needTime1">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>所需时长时间类型</em></label>
+                    <select ng-model="edit.needType" class="sele">
+                        <option value="MINUTE">分钟</option>
+                        <option value="HOUR">小时</option>
+                        <option value="DAY">天</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i></i><em>任务开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image startTime" ng-model="edit.startTime">
+                </li>
+                <li class="required">
+                    <label><i></i><em>任务结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image endTime" ng-model="edit.endTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务备注</em></label>
+                    <input type="text" ng-verify="{}" ng-model="edit.remark">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>任务是否拆分</em></label>
+                    <select class="sele num" ng-model="edit.split" ng-change="changSelect2()" ng-init="edit.split='true'">
+                        <option ng-value=true>是</option>
+                        <option ng-value=false>否</option>
+                    </select>
+                </li>
+                <li class="required" ng-style="splitDay">
+                    <label><i><img src="/images/mandatory.png"></i><em>拆分为（天）</em></label>
+                    <input type="number" ng-model="edit.day">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="openEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

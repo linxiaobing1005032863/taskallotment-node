@@ -1,0 +1,54 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" class="lis">列表</a>
+    </li>
+    <li ng-click="add()" ng-class="{'current':menuClass=='addMenu'}" ui-sref=".add[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" class="add">创建项目</a>
+    </li>
+    <li ng-click="edit()" ng-class="{'current':menuClass=='editMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">编辑</a>
+    </li>
+    <li ng-click="addTab()" ng-class="{'current':menuClass=='addTabMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">添加表</a>
+    </li>
+    <li ng-click="editTab()" ng-class="{'current':menuClass=='editTabMenu','seeParent':idListTwo}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)"  class="same-one see">编辑表</a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="DELETE" ng-init="menuCheck('DELETE')">
+        <a href="javascript:void(0)" class="same-two see" >删除</a>
+    </li>
+    <li ng-click="aaa()" ng-class="{'current':menuClass=='aaaMenu'}" ng-show="DELETE" ng-init="menuCheck('DELETE')" class="exImBox">
+        <!-- <select class="exIm">
+            <option disabled value="导入导出">导入导出</option>
+            <option>导入</option>
+            <option>导出</option>
+            <option>导入</option>
+            <option>导出</option>
+            <option>导入</option>
+            <option>导出</option>
+        </select> -->
+        <!-- <h5 class="same-two">导入导出</h5> -->
+        <a href="javascript:void(0)" class="same-two" >导入导出</a>
+        <ul>
+            <li ng-click="exportPro()"  class="exIm" ng-class="{'newCurrent':menuClass=='exportProMenu'}" ui-sref=".exportPro[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+                <a href="javascript:void(0)" class="add">导出项目</a>
+            </li>
+            <li ng-click="importPro()"  class="exIm" ng-class="{'newCurrent':menuClass=='importProMenu'}" ui-sref=".importPro[12]" ng-show="ADD" ng-init="menuCheck('ADD')">
+                <a href="javascript:void(0)" class="add">导入项目</a>
+            </li>
+            <li ng-click="importList()"  class="exIm" ng-class="{'newCurrent':menuClass=='importListMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+                <a href="javascript:void(0)"  class="same-one see">导入项目表</a>
+            </li>
+            <li ng-click="exportList()"  class="exIm" ng-class="{'newCurrent':menuClass=='exportListMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+                <a href="javascript:void(0)"  class="same-one see">导出项目表</a>
+            </li>
+            <li ng-click="importNew()"  class="exIm" ng-class="{'newCurrent':menuClass=='importNewMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+                <a href="javascript:void(0)" class="add see">导入全部项目</a>
+            </li>
+            <li ng-click="exportNew()"  class="exIm" ng-class="{'newCurrent':menuClass=='exportNewMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+                <a href="javascript:void(0)" class="add see">导出全部项目</a>
+            </li>
+        </ul>
+    </li>
+    
+</ul>

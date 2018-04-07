@@ -1,0 +1,23 @@
+<ul class="list">
+    <li ng-click="list()" ng-class="{'current':menuClass=='listMenu'}" ui-sref=".list[12]" ng-show="LIST" ng-init="menuCheck('LIST')">
+        <a href="javascript:void(0)" title="列表" class="lis">列表<span></span></a>
+    </li>
+    <li ng-click="delete()" ng-class="{'current':menuClass=='deleteMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="确认接收任务" class="same-two see" >确认接收任务<span></span></a>
+    </li>
+    <li ng-click="confirm()" ng-class="{'current':menuClass=='confirmMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="不确认接收任务"  class="same-one see">不确认接收任务<span></span></a>
+    </li>
+    <li ng-click="upload()" ng-class="{'current':menuClass=='uploadMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="上报任务"  class="same-one see">上报任务<span></span></a>
+    </li>
+    <li ng-click="again()" ng-class="{'current':menuClass=='againMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="再次分发"  class="same-one see">再次分发<span></span></a>
+    </li>
+    <li ng-click="complete()" ng-class="{'current':menuClass=='completeMenu','seeParent':idListd}" ng-show="ADD" ng-init="menuCheck('ADD')">
+        <a href="javascript:void(0)" title="填写任务完成情况"  class="same-one see">填写任务完成情况<span></span></a>
+    </li>
+    <li ng-click="listDetails()" ng-class="{'current':menuClass=='listDetailsMenu','seeParent':idListd}" ng-show="EDIT" ng-init="menuCheck('EDIT')">
+        <a href="javascript:void(0)" title="编辑"  class="same-one see">查看详情内容<span></span></a>
+    </li>
+</ul>

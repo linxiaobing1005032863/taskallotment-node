@@ -1,0 +1,69 @@
+<script src="/root/_res/js/echarts.common.min.js"></script>
+<div class="collect">
+    <div class="collect-select" style="margin:20px 20px 20px 15px">
+        <span class="sum"><i><img src="/images/mandatory.png"></i>开始时间：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter startTime" ng-model="vm.startTime"></span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>结束时间：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter endTime" ng-model="vm.endTime"></span><br>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>地区：
+            <div class="select inli" style="position: relative;z-index: 14;">
+                <p class="select-text" >
+                    <span ng-repeat="str1 in positions1">{{str1.area}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="areas" selected-model="positions1" extra-settings="stringSettings1"></div>
+            </div>
+        </span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>项目组/部门：
+            <div class="select inli" style="position: relative;z-index: 13;">
+                <p class="select-text" >
+                    <span ng-repeat="str2 in positions2">{{str2.department}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="departs" selected-model="positions2" extra-settings="stringSettings2" ng-click="aaa()"></div>
+            </div>
+        </span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>员工：
+            <div class="select inli">
+                <p class="select-text" >
+                    <span ng-repeat="str4 in positions4">{{str4}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="names" selected-model="positions4" extra-settings="stringSettings4"></div>
+            </div>
+        </span>
+        <button ng-click="collect()" style="margin-left:10px;" class="colbutton">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-tbody">
+            <li class="sum-thead Tspan">
+                <span>地区</span>
+                <span>项目组/部门</span>
+                <span>姓名</span>
+                <span>标准工时</span>
+                <span>实际完成工时</span>
+                <span>工时差异（小时）</span>
+            </li>
+            <li class="sum-tbody list-keng" ng-repeat="Lists1 in SummaryOne">
+                <span class="list-keng-span" style="height:{{(Lists1.length*46) + 'px'}};line-height:{{(Lists1.length*46) + 'px'}}">{{Lists1.area}}</span>
+                <ul>
+                    <li ng-repeat="Lists2 in Lists1.personSonS" class="list-keng2">
+                        <span class="list-keng-span2" style="height:{{(Lists2.length2*46) + 'px'}};line-height:{{(Lists2.length2*46) + 'px'}}">{{Lists2.depart}}</span>
+                        <ul>
+                            <li ng-repeat="Lists3 in Lists2.personLastS">
+                                <span>{{Lists3.name}}</span>
+                                <span>{{Lists3.standardHour}}</span>
+                                <span>{{Lists3.actualHour}}</span>
+                                <span>{{Lists3.differ}}</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </li>
+    </ul>
+    <div id="main4"></div>
+</div>
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

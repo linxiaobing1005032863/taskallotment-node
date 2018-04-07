@@ -1,0 +1,52 @@
+
+<div class="nav-list" ng-repeat="list in showsList">
+    <h3 class="header-menu big" ng-click="showMenu(list,true)">
+        <i class="nav-arrow" ng-class="{true: '', false: 'change-angle'}[list.showIs]"></i>
+        {{list.item}}</h3>
+    <ul class="menu" ng-if="list.menuList.length"  ng-show="list.showIs" ng-repeat="menuInfo in list.menuList">
+        <li ng-click="navClass(menuInfo.msg)"  ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.allocation.projects.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla== menuInfo.msg}" ui-sref="_root.allocation.plan.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name2}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.reminding.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name3}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.addition.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name4}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.distribution.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name5}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.charge.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name6}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.allocation.execution.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name7}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla== menuInfo.msg}" ui-sref="_root.allocation.complete.summary[12]">
+            <a href="javascript:void(0)">{{menuInfo.name8}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.allotment.summary[12]">
+            <a href="javascript:void(0)">{{menuInfo.name9}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.personnel.summary[12]">
+            <a href="javascript:void(0)">{{menuInfo.name10}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.workhours.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name11}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.allotmentset.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name12}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}" ui-sref="_root.allocation.completeset.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name13}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="cuspermission" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.allocation.setting.list[12]">
+            <a href="javascript:void(0)">{{menuInfo.name14}}</a>
+        </li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.allocation.versionInfo.version.list[12]" ><a href="javascript:void(0)">{{menuInfo.name15}}</a></li>
+        <li ng-click="navClass(menuInfo.msg)" ng-show="project" ng-class="{'active':navCla==menuInfo.msg}"  ui-sref="_root.allocation.versionInfo.help.list[12]" ><a href="javascript:void(0)">{{menuInfo.name16}}</a></li>
+    </ul>
+</div>

@@ -1,0 +1,121 @@
+<script src="/root/_res/js/echarts.common.min.js"></script>
+<div class="collect">
+    <div class="collect-select" style="margin:20px 20px 20px 15px">
+        <span class="sum">汇总类型：
+            <select ng-model="vm.countType" ng-change="changSelect()" ng-init="vm.countType='WHOLE'">
+                <option value="WHOLE">整体汇总</option>
+                <option value="DEPART">项目组/部门汇总</option>
+                <option value="PERSON">个人汇总</option>
+            </select>
+        </span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>开始时间：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter startTime" ng-model="vm.startTime"></span>
+        <span class="sum"><i><img src="/images/mandatory.png"></i>结束时间：<input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="inputter endTime" ng-model="vm.endTime"></span><br>
+        <span class="sum"><i ng-show="none"><img src="/images/mandatory.png"></i>地区：
+            <div class="select inli" style="position: relative;z-index: 14;">
+                <p class="select-text" >
+                    <span ng-repeat="str1 in positions1">{{str1.area}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="areas" selected-model="positions1" extra-settings="stringSettings1"></div>
+            </div>
+        </span>
+        <span class="sum"><i ng-show="none"><img src="/images/mandatory.png"></i>项目组/部门：
+            <div class="select inli" style="position: relative;z-index: 13;">
+                <p class="select-text" >
+                    <span ng-repeat="str2 in positions2">{{str2.department}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="departs" selected-model="positions2" extra-settings="stringSettings2" ng-click="aaa()"></div>
+            </div>
+        </span>
+        <span class="sum"><i ng-show="none"><img src="/images/mandatory.png"></i>项目：
+            <div class="select inli" style="position: relative;z-index: 12;">
+                <p class="select-text" >
+                    <span ng-repeat="str5 in positions5 track by $index">{{str5.project}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="allProjectsNew" selected-model="positions5" extra-settings="stringSettings5" ng-click="bbb()"></div>
+            </div>
+        </span>
+        <span class="sum"><i ng-show="none"><img src="/images/mandatory.png"></i>任务：
+            <div class="select inli" style="position: relative;z-index: 11;">
+                <p class="select-text" >
+                    <span ng-repeat="str3 in positions3">{{str3}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="projects" selected-model="positions3" extra-settings="stringSettings3"></div>
+            </div>
+        </span>
+        <span class="sum" ng-show="name"><i ng-show="none"><img src="/images/mandatory.png"></i>员工：
+            <div class="select inli">
+                <p class="select-text" >
+                    <span ng-repeat="str4 in positions4">{{str4}}, </span>
+                </p>
+                <div class="mymultiselect"  ng-dropdown-multiselect="" options="names" selected-model="positions4" extra-settings="stringSettings4"></div>
+            </div>
+        </span>
+        <button ng-click="summary()" style="margin-left:10px;" class="colbutton">汇总</button>
+    </div>
+    <ul class="sum-list">
+        <li class="sum-thead Tspan">
+            <span>地区</span>
+            <span>项目组/部门</span>
+            <span>项目</span>
+            <span>任务</span>
+            <span>姓名</span>
+            <span>工作内容</span>
+            <span>任务类型</span>
+            <span>已分配</span>
+            <span>未分配</span>
+            <span>确认接收量</span>
+            <span>未接收任务量</span>
+            <span>待确认接收量</span>
+        </li>
+        <li class="sum-tbody list-keng3" ng-repeat="Lists1 in allotSummary">
+            <!-- 1 -->
+            <span class="list-keng-span3" style="height:{{(Lists1.length1*46) + 'px'}};line-height:{{(Lists1.length1*46) + 'px'}}">{{Lists1.area}}</span>
+            <ul class="list-keng4">
+                <li ng-repeat="Lists2 in Lists1.confirmSonS">
+                    <!-- 2 -->
+                    <span class="list-keng-span4" style="height:{{(Lists2.length2*46) + 'px'}};line-height:{{(Lists2.length2*46) + 'px'}}">{{Lists2.depart}}</span>
+                    <ul class="list-keng5">
+                        <li ng-repeat="Lists3 in Lists2.confirmProBOS">
+                            <!-- 3 -->
+                            <span class="list-keng-span5" style="height:{{(Lists3.length3*46) + 'px'}};line-height:{{(Lists3.length3*46) + 'px'}}">{{Lists3.project}}</span>
+                            <ul class="list-keng6">
+                                <li ng-repeat="Lists4 in Lists3.tableS">
+                                    <!-- 4 -->
+                                    <span class="list-keng-span6" style="height:{{(Lists4.length4*46) + 'px'}};line-height:{{(Lists4.length4*46) + 'px'}}">{{Lists4.tableName}}</span>
+                                    <ul class="list-keng26">
+                                        <li ng-repeat="Lists5 in Lists4.grandSonS">
+                                            <!-- 5 -->
+                                            <span class="list-keng-span26" style="height:{{(Lists5.length5*46) + 'px'}};line-height:{{(Lists5.length5*46) + 'px'}};border-right: 1px solid #999">{{Lists5.name}}</span>
+                                            <span class="list-keng-span26" style="height:{{(Lists5.length5*46) + 'px'}};line-height:{{(Lists5.length5*46) + 'px'}}">{{Lists5.taskContent}}</span>
+                                            <ul>
+                                                <li ng-repeat="Lists6 in Lists5.confirmLastS">
+                                                    <!-- 6 -->
+                                                    <span>{{Lists6.taskType | all}}</span>
+                                                    <span>{{Lists6.haveInitiate}}</span>
+                                                    <span>{{Lists6.noInitiate}}</span>
+                                                    <span>{{Lists6.confirm}}</span>
+                                                    <span>{{Lists6.unConfirm}}</span>
+                                                    <span>{{Lists6.toConfirm}}</span>
+                                                </li>
+                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div id="main1"></div>
+</div>
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>

@@ -1,0 +1,148 @@
+<div class="content-tab list">
+    <div class="search-big" style="display :{{ isView?'none':'block'}}">
+        <select class="salc" ng-model="checkedName" ng-init="checkedName='部门'">
+            <option ng-repeat="item in titles">{{item}}</option>
+        </select>
+        <input type="text" ng-model="competitive" ng-show="checkedName=='部门'">
+        <a href="javascript:void(0)" ng-click="collect()"><img src="/images/search2.png"></a>
+    </div>
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>任务状态</span>
+            <span>任务名</span>
+            <span>执行人</span>
+            <span>下发人</span>
+            <span>任务类型</span>
+            <span>任务开始时间</span>
+            <span>任务结束时间</span>
+            <span></span>
+        </li>
+        <li class="list-all" ng-repeat="lists in openLists" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.taskStatus | execut}}</p>                                
+                    <p mod>{{lists.taskName}}</p>
+                    <p mod>{{lists.execute}}</p>
+                    <p mod>{{lists.initiate}}</p>
+                    <p mod>{{lists.taskType | execut}}</p>
+                    <p mod>{{lists.startTime}}</p>
+                    <p mod>{{lists.endTime}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>时长类型</span>
+                                <span>项目名</span>
+                                <span>项目表</span>
+                                <span>任务量</span>
+                                <span>确认接收任务状态</span>
+                                <span>完成状态</span>
+                                <span>任务时长</span>
+                                <span>总需时长</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.timesType | execut}}</span>
+                                <span mod>{{lists.project}}</span>
+                                <span mod>{{lists.table}}</span>
+                                <span mod>{{lists.planNum}}</span>
+                                <span mod>{{lists.confirm | execut}}</span>
+                                <span mod>{{lists.finishStatus | execut}}</span>
+                                <span mod>{{lists.planTime}}</span>
+                                <span mod>{{lists.needTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>地区</span>
+                                <span>项目组/部门</span>
+                                <span>执行时长</span>
+                                <span>注意事项</span>
+                                <span>执行开始时间</span>
+                                <span>执行结束时间</span>
+                                <span>是否出现问题</span>
+                                <span>是否有附件</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.area}}</span>
+                                <span mod>{{lists.depart}}</span>
+                                <span mod>{{lists.executeTime}}</span>
+                                <span mod>{{lists.notice}}</span>
+                                <span mod>{{lists.startExecute}}</span>
+                                <span mod>{{lists.endExecute}}</span>
+                                <span mod>{{lists.question | execut}}</span>
+                                <span mod>{{lists.attachment | execut}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>是否上报</span>
+                                <span>是否延期完成</span>
+                                <span>延期时间</span>
+                                <span>上报原因</span>
+                                <span>是否发生费用报销</span>
+                                <span>任务工作总结</span>
+                                <span>工作效率</span>
+                                <!-- <span>优先级</span> -->
+                                <span>功能模块</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.report | execut}}</span>
+                                <span mod>{{lists.delay | execut}}</span>
+                                <span mod>{{lists.delayTime}}</span>
+                                <span mod>{{lists.reportReason}}</span>
+                                <span mod>{{lists.reimbursement | execut}}</span>
+                                <span mod>{{lists.summary}}</span>
+                                <span mod>{{lists.efficiency}}</span>
+                                <!-- <span mod>{{lists.priority}}</span> -->
+                                <span mod>{{lists.moudle}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>功能级别</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.gpriority}}</span>
+                            </p>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->
+<div class="delete mod" ng-show="delShow">
+    <div class="del-head">
+        <h5>温馨提示</h5>
+    </div>
+    <div class="del-con">
+        <p>是否确认接收任务</p>
+        <div class="btn">
+            <button ng-click="delFn()">是</button>
+            <button ng-click="cancel()">否</button>
+        </div>
+    </div>
+</div>
+<div id="modalbg" ng-show="delShow"></div>
+
+
+
+

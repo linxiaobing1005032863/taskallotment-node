@@ -1,0 +1,8 @@
+{
+  "default":"dev",
+  "dev": {
+    "rurl": "http://192.168.0.221:51508",
+    "vurl": "https://version.issp.bjike.com:8080",
+    "user":"https://user.issp.bjike.com:8080"
+  }
+}

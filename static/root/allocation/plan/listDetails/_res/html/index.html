@@ -1,0 +1,207 @@
+<div class="content-tab list">
+    <ul class="table">
+        <li class="list-head">
+            <span></span>
+            <span>部门</span>
+            <span>项目名</span>
+            <span>内部项目名称</span>
+            <span>项目表</span>
+            <span>发起人</span>
+            <span>任务名称</span>
+            <span>负责人</span>
+            <span></span>
+        </li>
+        <li class="list-all" style="display: {{lists._delete?'none':'block'}};">
+            <section>
+                <div class="list-text {{lists._selectList?'selectList':''}}" ng-click="selectList(lists)">
+                    <p mod>{{$index+1+num}}</p>
+                    <p mod>{{lists.depart}}</p>
+                    <p mod>{{lists.project}}</p>
+                    <p mod>{{lists.innerProject}}</p>
+                    <p mod>{{lists.table}}</p>
+                    <p mod>{{lists.initiate}}</p>
+                    <p mod>{{lists.taskName}}</p>
+                    <p mod>{{lists.charge}}</p>
+                    <p>
+                        <a href="javascript:void(0)" class="more" ng-click="moreList(lists)">更多详细</a>
+                    </p>
+                </div>
+                <div class="can">
+                    <ul class="can-see" style="display: {{lists._moreList?'block':'none'}};">
+                        <li>
+                            <p class="see-parent">
+                                <span>执行人</span>
+                                <span>计划执行时间</span>
+                                <span>任务类型</span>
+                                <span>时长类型</span>
+                                <span>任务内容</span>
+                                <span>计划任务量</span>
+                                <span>完成任务量</span>
+                                <span>所需时长</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.execute}}</span>
+                                <span mod>{{lists.planTime}}</span>
+                                <span mod>{{lists.taskType | plan}}</span>
+                                <span mod>{{lists.timesType | plan}}</span>
+                                <span mod>{{lists.content}}</span>
+                                <span mod>{{lists.planNum}}</span>
+                                <span mod>{{lists.actualNum}}</span>
+                                <span mod>{{lists.needTime}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>类型</span>
+                                <span>任务开始时间</span>
+                                <span>任务结束时间</span>
+                                <span>任务是否拆分</span>
+                                <span>拆分为（天）</span>
+                                <span>执行时长</span>
+                                <span>开始执行时间</span>
+                                <span>结束执行时间</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.type}}</span>
+                                <span mod>{{lists.startTime}}</span>
+                                <span mod>{{lists.endTime}}</span>
+                                <span mod>{{lists.split | plan}}</span>
+                                <span mod>{{lists.day}}</span>
+                                <span mod>{{lists.executeTime}}</span>
+                                <span mod>{{lists.startExecute}}</span>
+                                <span mod>{{lists.endExecute}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>实际时长</span>
+                                <span>未完成时长</span>
+                                <span>完成时间</span>
+                                <span>执行人地区</span>
+                                <span>执行人部门</span>
+                                <span>完成状态</span>
+                                <span>确认状态</span>
+                                <span>是否发生费用报销</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.actualTime}}</span>
+                                <span mod>{{lists.undoneTime}}</span>
+                                <span mod>{{lists.finishTime}}</span>
+                                <span mod>{{lists.executeArea}}</span>
+                                <span mod>{{lists.executeDepart}}</span>
+                                <span mod>{{lists.finishStatus | plan}}</span>
+                                <span mod>{{lists.confirm}}</span>
+                                <span mod>{{lists.reimbursement | plan}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>注意事项</span>
+                                <span>是否有附件</span>
+                                <span>是否出现问题</span>
+                                <span>是否上报</span>
+                                <span>是否延期完成</span>
+                                <span>延期时长</span>
+                                <span>上报原因</span>
+                                <span>任务工作总结</span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.notice}}</span>
+                                <span mod>{{lists.attachment | plan}}</span>
+                                <span mod>{{lists.question | plan}}</span>
+                                <span mod>{{lists.report | plan}}</span>
+                                <span mod>{{lists.delay | plan}}</span>
+                                <span mod>{{lists.delayTime}}</span>
+                                <span mod>{{lists.reportReason}}</span>
+                                <span mod>{{lists.summary}}</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="see-parent">
+                                <span>任务状态</span>
+                                <!-- <span>优先级</span> -->
+                                <span>工作效率</span>
+                                <span>功能模块</span>
+                                <span>功能级别</span>
+                                <span>备注</span>
+                                <span></span>
+                                <span></span>
+                            </p>
+                            <p class="see-children">
+                                <span mod>{{lists.taskStatus | plan}}</span>
+                                <!-- <span mod>{{lists.priority}}</span> -->
+                                <span mod>{{lists.efficiency}}</span>
+                                <span mod>{{lists.moudle}}</span>
+                                <span mod>{{lists.gpriority}}</span>
+                                <span mod>{{lists.remark}}</span>
+                                <span>
+                                    <a href="javascript:void(0)" class="more threeMore" ng-click="moreList2(lists)">查看自定义字段信息</a>
+                                </span>
+                                <span>
+                                    <a href="javascript:void(0)" class="more threeMore" ng-click="moreList3(lists)">查看问题信息</a>
+                                </span>
+                                <div class="can">
+                                    <ul class="can-see" style="display: {{lists._moreList2?'block':'none'}};">
+                                        <li ng-repeat="lists2 in lists.customTitles">
+                                            <p class="see-parent">
+                                                <span>标题下标</span>
+                                                <span>字段名</span>
+                                                <span>字段内容</span>
+                                                <span>是否必填选项</span>
+                                                <span>字段类型</span>
+                                            </p>
+                                            <p class="see-children">
+                                                <span mod>{{lists2.titleIndex}}</span>
+                                                <span mod>{{lists2.title}}</span>
+                                                <span mod>{{lists2.content}}</span>
+                                                <span mod>{{lists2.mandatory | plan}}</span>
+                                                <span mod>{{lists2.titleType | plan}}</span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="can">
+                                    <ul class="can-see" style="display: {{lists._moreList3?'block':'none'}};">
+                                        <li ng-repeat="lists3 in lists.questions">
+                                            <p class="see-parent">
+                                                <span>问题审核人</span>
+                                                <span>受理人</span>
+                                                <span>事件</span>
+                                                <span>问题描述</span>
+                                                <span>问题类型</span>
+                                                <span>期望处理时间</span>
+                                                <span>协助部门</span>
+                                                <span>协助模块</span>
+                                            </p>
+                                            <p class="see-children">
+                                                <span mod>{{lists3.audit}}</span>
+                                                <span mod>{{lists3.receiver}}</span>
+                                                <span mod>{{lists3.event}}</span>
+                                                <span mod>{{lists3.description}}</span>
+                                                <span mod>{{lists3.type}}</span>
+                                                <span mod>{{lists3.expectTime}}</span>
+                                                <span mod>{{lists3.assistDepart}}</span>
+                                                <span mod>{{lists3.assistModule}}</span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </li>
+    </ul>
+    <div class="module">
+        <div class="see-module">
+            <p class="see-type">体现类型</p>
+            <p class="see-description"></p>
+            <button class="btn" modclose>关闭</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </footer>
+</div>
+<!-- <div ui-view="modal"></div> -->

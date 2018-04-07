@@ -1,0 +1,151 @@
+<div class="content-input edit" verify-scope="tipStyle: 1">
+    <div class="input-list">
+        <section>
+            <ul>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>汇总表名称</em></label>
+                    <input type="text" ng-verify="{}" ng-model="comset.name">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>汇总对象</em></label>
+                    <select class="sele num" ng-model="comset.countType" ng-change="changSelect1()">
+                        <option value="WHOLE">整体汇总</option>
+                        <option value="DEPART">项目组/部门汇总</option>
+                        <option value="PERSON">个人汇总</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz"></i><em>地区</em></label>
+                    <div class="select" style="width: 55%;position: relative;z-index: 12;">
+                        <p class="select-text">
+                            <span ng-repeat="str1 in positions1">{{str1}}, </span>
+                        </p>
+                        <div class="mymultiselect" events="getSummary" ng-dropdown-multiselect="" options="arr1" selected-model="positions1" extra-settings="stringSettings1"></div>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz"></i><em>项目组</em></label>
+                    <div class="select" style="width: 55%;position: relative;z-index: 11;">
+                        <p class="select-text" >
+                            <span ng-repeat="str2 in positions2">{{str2.department}}, </span>
+                        </p>
+                        <div class="mymultiselect"  ng-dropdown-multiselect="" options="departs" selected-model="positions2" extra-settings="stringSettings2" ng-click="aaa()"></div>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz"></i><em>项目</em></label>
+                    <div class="select" style="width: 55%;position: relative;z-index: 11;">
+                        <p class="select-text" >
+                            <span ng-repeat="str3 in positions3">{{str3.project}}, </span>
+                        </p>
+                        <div class="mymultiselect"  ng-dropdown-multiselect="" options="projects" selected-model="positions3" extra-settings="stringSettings3" ng-click="bbb()"></div>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz"></i><em>项目表</em></label>
+                    <div class="select" style="width: 55%;">
+                        <p class="select-text" >
+                            <span ng-repeat="str4 in positions4">{{str4}}, </span>
+                        </p>
+                        <div class="mymultiselect"  ng-dropdown-multiselect="" options="tables" selected-model="positions4" extra-settings="stringSettings4" ng-click="ccc()"></div>
+                    </div>
+                </li>
+                <li class="required" ng-show="one">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz"></i><em>汇总个人</em></label>
+                    <div class="select" style="width: 55%;">
+                        <p class="select-text" >
+                            <span ng-repeat="str5 in positions5">{{str5}}, </span>
+                        </p>
+                        <div class="mymultiselect"  ng-dropdown-multiselect="" options="names" selected-model="positions5" extra-settings="stringSettings5"></div>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>提醒间隔</em></label>
+                    <select class="sele num" ng-model="comset.spacing">
+                        <option value="MINTUE">分钟</option>
+                        <option value="HOUR">小时</option>
+                        <option value="DAY">天</option>
+                        <option value="WEEK">周</option>
+                        <option value="MONTH">月</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>提醒频率</em></label>
+                    <input type="number" ng-verify="{}" ng-model="comset.remind">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>设置时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="add_image setTime" ng-model="comset.setTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>通报对象</em></label>
+                    <select class="sele num" ng-model="comset.forObject" ng-change="changSelect2()">
+                        <option value="ALL">全体</option>
+                        <option value="DEPART">部门</option>
+                        <option value="PERSON">个人</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz2"></i><em>通报部门</em></label>
+                    <div class="select" style="width: 55%;">
+                        <p class="select-text" >
+                            <span ng-repeat="str6 in positions6">{{str6.department}}, </span>
+                        </p>
+                        <div class="mymultiselect"  ng-dropdown-multiselect="" options="departs" selected-model="positions6" extra-settings="stringSettings6" ng-click="ccc()"></div>
+                    </div>
+                </li>
+                <li class="required" ng-show="one2">
+                    <label><i><img src="/images/mandatory.png" ng-show="xmz2"></i><em>通报个人</em></label>
+                    <div class="select" style="width: 55%;">
+                        <p class="select-text" >
+                            <span ng-repeat="str7 in positions7">{{str7}}, </span>
+                        </p>
+                        <div class="mymultiselect"  ng-dropdown-multiselect="" options="names" selected-model="positions7" extra-settings="stringSettings7"></div>
+                    </div>
+                </li>
+                <li class="required">
+                    <label><em>汇总频率</em></label>
+                    <select class="sele num" ng-model="comset.countFrequency">
+                        <option value="DAY">天</option>
+                        <option value="WEEK">周</option>
+                        <option value="MONTH">月</option>
+                        <option value="SEASON">季度</option>
+                        <option value="YEAR">年</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>汇总开始时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image startTime" ng-model="comset.startTime">
+                </li>
+                <li class="required">
+                    <label><em>汇总结束时间</em></label>
+                    <input type="text" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="add_image endTime" ng-model="comset.endTime">
+                </li>
+                <li class="required">
+                    <label><i><img src="/images/mandatory.png"></i><em>状态</em></label>
+                    <select class="sele num" ng-model="comset.status">
+                        <option value="START">启用</option>
+                        <option value="END">禁用</option>
+                    </select>
+                </li>
+                <li class="required">
+                    <label><em>备注</em></label>
+                    <input type="text" ng-model="comset.remark">
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="dataBottom">
+        <span class="imPrompt"><i><img src="/images/prompt.png"></i>带有<i><img src="/images/mandatory.png"></i>的为必填项</span>
+        <button ng-verify="{control:'myform'}" ng-click="openEditFun()">提交</button>
+    </p>
+</div>
+
+<script type="text/javascript">
+
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+
+</script>
